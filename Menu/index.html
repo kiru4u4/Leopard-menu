@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>LEOPARD PRIVATE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="grip">⋮</div>
+      <div class="brand"><span>[LEOPARD]</span> PRIVATE</div>
+      <div class="status"><i></i><span id="connection">LOCAL</span></div>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab active" data-page="home">HOME</button>
+      <button class="tab" data-page="colors">COLORS</button>
+      <button class="tab" data-page="configs">CONFIGS</button>
+    </nav>
+
+    <main>
+      <section id="home" class="page active">
+        <div class="grid two">
+          <article class="card">
+            <div class="card-title">Aim Color</div>
+            <div class="row"><span>Active</span><label class="switch"><input id="aimbot_ativo" type="checkbox"><b></b></label></div>
+            <label>Aim Mode<select id="aim_mode"><option value="0">Smooth Aim</option><option value="1">Bezier Aim</option></select></label>
+            <label>FOV <output data-for="aimbot_fov"></output><input id="aimbot_fov" type="range" min="1" max="200" value="90"></label>
+            <div id="smoothControls">
+              <label>Smooth <output data-for="aimbot_smooth"></output><input id="aimbot_smooth" type="range" min="1" max="10" step=".1" value="5"></label>
+            </div>
+            <div id="bezierControls" class="hidden">
+              <label>Speed X <output data-for="speed_x"></output><input id="speed_x" type="range" min="1" max="10" step=".1" value="5"></label>
+              <label>Speed Y <output data-for="speed_y"></output><input id="speed_y" type="range" min="1" max="10" step=".1" value="5"></label>
+              <label>Steps <output data-for="bezier_intensity"></output><input id="bezier_intensity" type="range" min="1" max="10" value="5"></label>
+            </div>
+            <div class="divider"></div>
+            <div class="section-title">Rotação</div>
+            <div class="row"><span>Ativar Rotação</span><label class="switch"><input id="rotation_enabled" type="checkbox"><b></b></label></div>
+            <label>Modo<select id="rotation_random"><option value="0">Padrão</option><option value="1">Aleatório</option></select></label>
+            <label id="patternWrap">Padrão<select id="rotation_pattern"><option>Circular</option><option>Horizontal</option><option>Vertical</option><option>Diagonal</option><option>Ondulado</option></select></label>
+            <label>Ângulo <output data-for="rotation_angle"></output><input id="rotation_angle" type="range" min="-15" max="15" step=".1" value="0"></label>
+            <label>Raio <output data-for="rotation_radius"></output><input id="rotation_radius" type="range" min=".7" max="1.3" step=".01" value="1"></label>
+            <label>Suavidade <output data-for="rotation_smoothness"></output><input id="rotation_smoothness" type="range" min=".1" max="1" step=".01" value=".5"></label>
+            <label>Intensidade <output data-for="rotation_intensity"></output><input id="rotation_intensity" type="range" min=".1" max="1" step=".01" value=".5"></label>
+            <div class="row"><span>Progressivo</span><label class="switch"><input id="rotation_progressive" type="checkbox"><b></b></label></div>
+            <button class="hotkey" id="aimkey">None</button>
+          </article>
+
+          <article class="card">
+            <div class="card-title">Magnet</div>
+            <div class="row"><span>Active</span><label class="switch"><input id="aimassist_ativo" type="checkbox"><b></b></label></div>
+            <label>Magnet Mode<select id="assist_mode"><option value="0">Smooth Magnet</option><option value="1">Bezier Magnet</option></select></label>
+            <label>FOV <output data-for="aimassist_fov"></output><input id="aimassist_fov" type="range" min="1" max="200" value="90"></label>
+            <div id="magSmoothControls">
+              <label>Smooth <output data-for="aimassist_smooth"></output><input id="aimassist_smooth" type="range" min="1" max="10" step=".1" value="5"></label>
+            </div>
+            <div id="magBezierControls" class="hidden">
+              <label>Speed X <output data-for="assist_speed_x"></output><input id="assist_speed_x" type="range" min="1" max="10" step=".1" value="5"></label>
+              <label>Speed Y <output data-for="assist_speed_y"></output><input id="assist_speed_y" type="range" min="1" max="10" step=".1" value="5"></label>
+              <label>Steps <output data-for="bezier_intensity_magnet"></output><input id="bezier_intensity_magnet" type="range" min="1" max="10" value="5"></label>
+            </div>
+            <div class="divider"></div>
+            <div class="section-title">Rotação</div>
+            <div class="row"><span>Ativar Rotação</span><label class="switch"><input id="magnet_rotation_enabled" type="checkbox"><b></b></label></div>
+            <label>Modo<select id="magnet_rotation_random"><option value="0">Padrão</option><option value="1">Aleatório</option></select></label>
+            <label>Ângulo <output data-for="magnet_rotation_angle"></output><input id="magnet_rotation_angle" type="range" min="-15" max="15" step=".1" value="0"></label>
+            <label>Raio <output data-for="magnet_rotation_radius"></output><input id="magnet_rotation_radius" type="range" min=".7" max="1.3" step=".01" value="1"></label>
+            <label>Suavidade <output data-for="magnet_rotation_smoothness"></output><input id="magnet_rotation_smoothness" type="range" min=".1" max="1" step=".01" value=".5"></label>
+            <label>Intensidade <output data-for="magnet_rotation_intensity"></output><input id="magnet_rotation_intensity" type="range" min=".1" max="1" step=".01" value=".5"></label>
+            <div class="row"><span>Progressivo</span><label class="switch"><input id="magnet_rotation_progressive" type="checkbox"><b></b></label></div>
+            <button class="hotkey" id="assist_aimkey">None</button>
+          </article>
+
+          <article class="card compact">
+            <div class="card-title">Auto Shoot</div>
+            <div class="row"><span>Active</span><label class="switch"><input id="triggerbot_ativo" type="checkbox"><b></b></label></div>
+            <div class="row"><span>Toggle Mode</span><label class="switch"><input id="triggerbot_toggle_mode" type="checkbox"><b></b></label></div>
+            <label>FOV X <output data-for="triggerbot_fovX"></output><input id="triggerbot_fovX" type="range" min="1" max="100" value="20"></label>
+            <label>FOV Y <output data-for="triggerbot_fovY"></output><input id="triggerbot_fovY" type="range" min="1" max="100" value="20"></label>
+            <label>Delay <output data-for="triggerbot_delay"></output><input id="triggerbot_delay" type="range" min="1" max="500" value="50"></label>
+            <button class="hotkey" id="triggerbot_key">None</button>
+          </article>
+
+          <article class="card compact">
+            <div class="card-title">MISC</div>
+            <label>Head X <output data-for="head_offset_x"></output><input id="head_offset_x" type="range" min="0" max="50" value="0"></label>
+            <label>Head Y <output data-for="head_offset_y"></output><input id="head_offset_y" type="range" min="0" max="50" value="0"></label>
+            <div class="rotation-status" id="rotationStatus">Rotação: INATIVA</div>
+          </article>
+        </div>
+      </section>
+
+      <section id="colors" class="page">
+        <article class="card color-card">
+          <div class="card-title">Colors</div>
+          <div id="colorsList"></div>
+        </article>
+      </section>
+
+      <section id="configs" class="page">
+        <article class="card config-card">
+          <div class="card-title">Config Manager</div>
+          <input id="configName" class="text-input" placeholder="Enter config name...">
+          <div id="configList" class="config-list"></div>
+          <div class="button-grid">
+            <button id="createConfig">Create</button><button id="loadConfig">Load</button>
+            <button id="saveConfig">Save</button><button id="refreshConfig">Refresh</button>
+          </div>
+          <button id="deleteConfig" class="danger">Delete Selected</button>
+        </article>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
